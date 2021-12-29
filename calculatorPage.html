@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>JavaScript Calculator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+			<header id="header">
+				<a href="index.html" class="title">Gianluca Abiusi</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="calculatorPage.html" class="active">Calculator</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<div id="wrapper">
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">JavaScript Calculator</h1>
+							<span class="image fit"><img src="images/calculator.gif" alt="" /></span>
+							<p>Simple calculator, fully developed in JavaScript using classes and conditionals. Contains the basic operators (addition, subtraction, multiplication, division, root and power) and decimal numbers.</p>
+							<p>A simple project that I started to measure my JavaScript skills, because creating a calculator sounded easy to me, but when thinking about how to develop it I realized that it required many important concepts of the language. I created the calculator and its functions using classes, then I added event listeners to the buttons to interact with the calculator. To carry out the operations, I used a switch, so that it is in charge of carrying out the operation and returning the result to the user. The most difficult part was working with the decimal numbers (Not being able to put more than one point, put a 0 automatically if there is no number, etc.) and the thousands separator. To work with the decimals and make the thousands separator, I decided to convert the number into a string and separate it with .split in the ".", in order to work separately with the integer part and the decimal part. The function for the thousands separator looks like this:<br/><br/>
+								getNumber(number) {<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;const stringNumber = number.toString()<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;const integerDigits = parseFloat(stringNumber.split('.')[0])<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;const decimalDigits = stringNumber.split('.')[1]<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;let integerDisplay<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;if(isNaN(integerDigits)) {<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integerDisplay = ''<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;} else {<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;if(decimalDigits != null) {<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return `${integerDisplay}.${decimalDigits}`<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;} else {<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return integerDisplay<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+								}<br/>
+							</p>
+						</div>
+					</section>
+			</div>
+
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Gianluca Abiusi</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
